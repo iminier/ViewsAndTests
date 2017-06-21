@@ -22,16 +22,18 @@ class MainView: UIView {
         
         yogaImage.layer.borderColor = UIColor.white.cgColor
         yogaImage.layer.borderWidth = 2
-        //yogaImage.layer.cornerRadius = 5.0
-        yogaImage.pin.center()
         
         self.addSubview(yogaImage)
         
-        yogaImage.size.width = 200
-        yogaImage.size.height = 200
+        yogaImage.size.width = frame.width
+        yogaImage.size.height = frame.height
         
-        //yogaImage.pin.center()
+        print(frame.maxX)
+        print(frame.maxY)
         
+        yogaImage.pin.vCenter(600)
+        yogaImage.pin.hCenter(900)
+        //yogaImage.pin.topCenter().top(20)
         
     }
     

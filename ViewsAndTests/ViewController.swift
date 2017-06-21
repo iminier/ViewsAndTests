@@ -16,8 +16,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        mainView = MainView(frame: CGRect.zero)
+        //mainView = MainView(frame: CGRect(x: view.bounds.width, y: view.bounds.height, width: 20, height: 20))
+        mainView = MainView(frame: CGRect.init(x: view.bounds.width, y: view.bounds.height, width: 200, height: 200))
         self.view.addSubview(mainView)
+        
     }
 
     override func didReceiveMemoryWarning() {
