@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        mainView = MainView(frame: view.)
+        mainView = MainView(frame: CGRect.zero)
         self.view.addSubview(mainView)
     }
 

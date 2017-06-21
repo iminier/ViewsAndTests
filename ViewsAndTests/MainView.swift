@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PinLayout
 
 class MainView: UIView {
     var yogaImage: UIImageView!
@@ -21,9 +22,17 @@ class MainView: UIView {
         
         yogaImage.layer.borderColor = UIColor.white.cgColor
         yogaImage.layer.borderWidth = 2
-        yogaImage.layer.cornerRadius = 5.0
+        //yogaImage.layer.cornerRadius = 5.0
+        yogaImage.pin.center()
         
         self.addSubview(yogaImage)
+        
+        yogaImage.size.width = 200
+        yogaImage.size.height = 200
+        
+        //yogaImage.pin.center()
+        
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
