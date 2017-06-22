@@ -14,11 +14,11 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-        //mainView = MainView(frame: CGRect(x: view.bounds.width, y: view.bounds.height, width: 20, height: 20))
-        mainView = MainView(frame: CGRect.init(x: view.bounds.width, y: view.bounds.height, width: 200, height: 200))
+        mainView = MainView(frame: CGRect.init(x: 0, y: 0, width: view.frame.width * 0.70, height: 40))
+        
         self.view.addSubview(mainView)
+        mainView.setLayout(view: view)
         
     }
 
