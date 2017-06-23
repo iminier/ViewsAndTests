@@ -17,6 +17,8 @@ class MainView: UIView {
     var yogaFive: UIImageView!
     var newTest: UIImageView!
     
+    var but: UIButton!
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -43,25 +45,36 @@ class MainView: UIView {
         self.addSubview(yogaThree)
         
         newTest = UIImageView(frame: frame)
-        newTest.backgroundColor = UIColor.orange
+        newTest.backgroundColor = UIColor.red
         newTest.layer.borderColor = UIColor.white.cgColor
         newTest.layer.borderWidth = 2
         
-        
+        self.addSubview(newTest)
         
         yogaFour = UIImageView(frame: frame)
-        yogaFour.backgroundColor = UIColor.blue
-        yogaFour.layer.backgroundColor = UIColor.white.cgColor
+        yogaFour.backgroundColor = UIColor.purple
+        yogaFour.layer.borderColor = UIColor.white.cgColor
         yogaFour.layer.borderWidth = 2
+        
+        self.addSubview(yogaFour)
         
         yogaFive = UIImageView(frame: frame)
         yogaFive.backgroundColor = UIColor.yellow
         yogaFive.layer.borderColor = UIColor.white.cgColor
         yogaFive.layer.borderWidth = 2
         
-        self.addSubview(yogaFour)
-        self.addSubview(newTest)
         self.addSubview(yogaFive)
+        
+        but = UIButton(frame: frame)
+        but.backgroundColor = UIColor.clear
+        but.setTitle("TEST", for: .normal)
+        but.titleLabel?.textAlignment = .center
+        but.titleLabel?.textColor = UIColor.white
+        but.layer.borderColor = UIColor.white.cgColor
+        but.layer.borderWidth = 2
+        but.addTarget(self, action: #selector(MainView.butAct), for: .touchUpInside)
+        
+        self.addSubview(but)
     }
     
     func setLayout(view: UIView) {
@@ -70,28 +83,30 @@ class MainView: UIView {
         yogaImage.center.x = view.frame.width / 2
         yogaImage.center.y = view.frame.height * 0.30
         
-        
-        yogaTwo.size = CGSize(width: yogaImage.width * 0.60, height: yogaImage.height)
+        yogaTwo.size = CGSize(width: yogaImage.width * 0.60, height: yogaImage.height * 2)
         yogaTwo.pin.below(of: yogaImage, aligned: .left)
         
-        yogaThree.size = CGSize(width: yogaImage.width * 0.40, height: yogaImage.height / 2)
+        yogaThree.size = CGSize(width: yogaImage.width * 0.40, height: yogaImage.height * 2)
         yogaThree.pin.below(of: yogaImage, aligned: .right)
         
-        yogaFour.size = CGSize(width: yogaImage.width * 0.40, height: yogaImage.height / 2)
-        yogaFour.pin.below(of: yogaThree, aligned: .center)
-        
-        newTest.size = CGSize(width: yogaImage.width * 0.40, height: yogaImage.height / 2)
-        newTest.pin.below(of: yogaThree, aligned: .center)
+        newTest.size = CGSize(width: yogaImage.width * 0.50, height: yogaImage.height * 2)
+        newTest.pin.below(of: yogaThree, aligned: .right)
 
         yogaFive.size = CGSize(width: yogaImage.width * 0.50, height: yogaImage.height * 2)
-        yogaFive.pin.below(of: newTest, aligned: .left)
+        yogaFive.pin.below(of: yogaTwo, aligned: .left)
         
-        print(newTest.backgroundColor!)
-        print(yogaTwo.backgroundColor!)
-        print(yogaThree.backgroundColor!)
-        print(yogaFour.backgroundColor!)
-        print(yogaFive.backgroundColor!)
+        yogaFour.size = CGSize(width: yogaImage.width, height: yogaImage.height)
+        yogaFour.pin.below(of: yogaFive, aligned: .left)
         
+        but.size.width = view.width / 2
+        but.size.height = 40
+        but.center.x = view.width / 2
+        but.center.y = view.height * 0.80
+        
+    }
+    
+    func butAct(sender: UIButton) {
+        print("something")
     }
     
     required init?(coder aDecoder: NSCoder) {

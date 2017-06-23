@@ -16,8 +16,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         mainView = MainView(frame: CGRect.init(x: 0, y: 0, width: view.frame.width * 0.70, height: 40))
-        
+        //self.addChildViewController(mainView)
         self.view.addSubview(mainView)
+        mainView.isUserInteractionEnabled = true
         mainView.setLayout(view: view)
         
     }
