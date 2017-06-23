@@ -11,99 +11,99 @@ import PinLayout
 
 class MainView: UIView {
     
-    var yogaImage: UIImageView!
-    var yogaTwo: UIImageView!
-    var yogaThree: UIImageView!
-    var yogaFour: UIImageView!
-    var yogaFive: UIImageView!
-    var newTest: UIImageView!
-    
-    var but: UIButton!
+    var topImage: UIImageView!
+    var rowTwoLeft: UIImageView!
+    var rowTwoRight: UIImageView!
+    var rowThreeLeft: UIImageView!
+    var rowThreeRight: UIImageView!
+    var bottomRow: UIImageView!
+
+    var testButton: UIButton!
     
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        yogaImage = UIImageView(frame: frame)
-        yogaImage.backgroundColor = UIColor.gray
-        yogaImage.layer.borderColor = UIColor.white.cgColor
-        yogaImage.layer.borderWidth = 2
-        yogaImage.isUserInteractionEnabled = false
+        topImage = UIImageView(frame: frame)
+        topImage.backgroundColor = UIColor.gray
+        topImage.layer.borderColor = UIColor.white.cgColor
+        topImage.layer.borderWidth = 2
+        topImage.isUserInteractionEnabled = false
         
-        self.addSubview(yogaImage)
+        self.addSubview(topImage)
         
-        yogaTwo = UIImageView(frame: frame)
-        yogaTwo.backgroundColor = UIColor.blue
-        yogaTwo.layer.borderColor = UIColor.white.cgColor
-        yogaTwo.layer.borderWidth = 2
+        rowTwoLeft = UIImageView(frame: frame)
+        rowTwoLeft.backgroundColor = UIColor.blue
+        rowTwoLeft.layer.borderColor = UIColor.white.cgColor
+        rowTwoLeft.layer.borderWidth = 2
         
-        self.addSubview(yogaTwo)
+        self.addSubview(rowTwoLeft)
         
-        yogaThree = UIImageView(frame: frame)
-        yogaThree.backgroundColor = UIColor.orange
-        yogaThree.layer.borderColor = UIColor.white.cgColor
-        yogaThree.layer.borderWidth = 2
+        rowTwoRight = UIImageView(frame: frame)
+        rowTwoRight.backgroundColor = UIColor.orange
+        rowTwoRight.layer.borderColor = UIColor.white.cgColor
+        rowTwoRight.layer.borderWidth = 2
         
-        self.addSubview(yogaThree)
+        self.addSubview(rowTwoRight)
         
-        newTest = UIImageView(frame: frame)
-        newTest.backgroundColor = UIColor.red
-        newTest.layer.borderColor = UIColor.white.cgColor
-        newTest.layer.borderWidth = 2
+        rowThreeRight = UIImageView(frame: frame)
+        rowThreeRight.backgroundColor = UIColor.red
+        rowThreeRight.layer.borderColor = UIColor.white.cgColor
+        rowThreeRight.layer.borderWidth = 2
         
-        self.addSubview(newTest)
+        self.addSubview(rowThreeRight)
         
-        yogaFour = UIImageView(frame: frame)
-        yogaFour.backgroundColor = UIColor.purple
-        yogaFour.layer.borderColor = UIColor.white.cgColor
-        yogaFour.layer.borderWidth = 2
+        bottomRow = UIImageView(frame: frame)
+        bottomRow.backgroundColor = UIColor.purple
+        bottomRow.layer.borderColor = UIColor.white.cgColor
+        bottomRow.layer.borderWidth = 2
         
-        self.addSubview(yogaFour)
+        self.addSubview(bottomRow)
         
-        yogaFive = UIImageView(frame: frame)
-        yogaFive.backgroundColor = UIColor.yellow
-        yogaFive.layer.borderColor = UIColor.white.cgColor
-        yogaFive.layer.borderWidth = 2
+        rowThreeLeft = UIImageView(frame: frame)
+        rowThreeLeft.backgroundColor = UIColor.yellow
+        rowThreeLeft.layer.borderColor = UIColor.white.cgColor
+        rowThreeLeft.layer.borderWidth = 2
         
-        self.addSubview(yogaFive)
+        self.addSubview(rowThreeLeft)
         
-        but = UIButton(frame: frame)
-        but.backgroundColor = UIColor.clear
-        but.setTitle("TEST", for: .normal)
-        but.titleLabel?.textAlignment = .center
-        but.titleLabel?.textColor = UIColor.white
-        but.layer.borderColor = UIColor.white.cgColor
-        but.layer.borderWidth = 2
-        but.addTarget(self, action: #selector(MainView.butAct), for: .touchUpInside)
+        testButton = UIButton(frame: frame)
+        testButton.backgroundColor = UIColor.clear
+        testButton.setTitle("TEST", for: .normal)
+        testButton.titleLabel?.textAlignment = .center
+        testButton.titleLabel?.textColor = UIColor.white
+        testButton.layer.borderColor = UIColor.white.cgColor
+        testButton.layer.borderWidth = 2
+        testButton.addTarget(self, action: #selector(MainView.butAct), for: .touchUpInside)
         
-        self.addSubview(but)
+        self.addSubview(testButton)
     }
     
     func setLayout(view: UIView) {
         
         print(view.frame.width)
-        yogaImage.size = CGSize(width: view.frame.width * 0.70, height: 40)
-        yogaImage.center.x = view.frame.width / 2
-        yogaImage.center.y = view.frame.height * 0.30
+        topImage.size = CGSize(width: view.frame.width * 0.70, height: 40)
+        topImage.center.x = view.frame.width / 2
+        topImage.center.y = view.frame.height * 0.30
         
-        yogaTwo.size = CGSize(width: yogaImage.width * 0.60, height: yogaImage.height * 2)
-        yogaTwo.pin.below(of: yogaImage, aligned: .left)
+        rowTwoLeft.size = CGSize(width: topImage.width * 0.60, height: topImage.height * 2)
+        rowTwoLeft.pin.below(of: topImage, aligned: .left)
         
-        yogaThree.size = CGSize(width: yogaImage.width * 0.40, height: yogaImage.height * 2)
-        yogaThree.pin.below(of: yogaImage, aligned: .right)
+        rowTwoRight.size = CGSize(width: topImage.width * 0.40, height: topImage.height * 2)
+        rowTwoRight.pin.below(of: topImage, aligned: .right)
         
-        newTest.size = CGSize(width: yogaImage.width * 0.50, height: yogaImage.height * 2)
-        newTest.pin.below(of: yogaThree, aligned: .right)
-
-        yogaFive.size = CGSize(width: yogaImage.width * 0.50, height: yogaImage.height * 2)
-        yogaFive.pin.below(of: yogaTwo, aligned: .left)
+        rowThreeLeft.size = CGSize(width: topImage.width * 0.50, height: topImage.height * 2)
+        rowThreeLeft.pin.below(of: rowTwoLeft, aligned: .left)
         
-        yogaFour.size = CGSize(width: yogaImage.width, height: yogaImage.height)
-        yogaFour.pin.below(of: yogaFive, aligned: .left)
+        rowThreeRight.size = CGSize(width: topImage.width * 0.50, height: topImage.height * 2)
+        rowThreeRight.pin.below(of: rowTwoRight, aligned: .right)
         
-        but.size.width = view.width / 2
-        but.size.height = 40
-        but.pin.below(of: yogaFour, aligned: .center).marginTop(20)
+        bottomRow.size = CGSize(width: topImage.width, height: topImage.height)
+        bottomRow.pin.below(of: rowThreeLeft, aligned: .left)
+        
+        testButton.size.width = view.width / 2
+        testButton.size.height = 40
+        testButton.pin.below(of: bottomRow, aligned: .center).marginTop(20)
         
     }
     
