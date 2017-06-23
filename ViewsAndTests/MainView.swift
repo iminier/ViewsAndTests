@@ -21,8 +21,7 @@ class MainView: UIView {
     var bottomRow: UIImageView!
 
     var testButton: UIButton!
-    //var moreButton: UIButton!
-    
+    var moreButton: UIButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -65,7 +64,16 @@ class MainView: UIView {
         testButton.titleLabel?.textColor = UIColor.white
         testButton.layer.borderColor = UIColor.white.cgColor
         testButton.layer.borderWidth = frameBorderWidth
-        testButton.addTarget(self, action: #selector(MainView.butAct), for: .touchUpInside)
+        testButton.addTarget(self, action: #selector(MainView.testButAction), for: .touchUpInside)
+        
+        moreButton = UIButton(frame: frame)
+        moreButton.backgroundColor = UIColor.clear
+        moreButton.setTitle("MORE", for: .normal)
+        moreButton.titleLabel?.textAlignment = .center
+        moreButton.titleLabel?.textColor = UIColor.white
+        moreButton.layer.borderColor = UIColor.white.cgColor
+        moreButton.layer.borderWidth = frameBorderWidth
+        moreButton.addTarget(self, action: #selector(MainView.moreButAction), for: .touchUpInside)
         
         // Any order here works as long as the layout is set in proper order in setLayout()
         
@@ -76,6 +84,7 @@ class MainView: UIView {
         self.addSubview(rowThreeRight)
         self.addSubview(bottomRow)
         self.addSubview(testButton)
+        self.addSubview(moreButton)
  
         
     }
@@ -106,10 +115,18 @@ class MainView: UIView {
         testButton.size.height = 40
         testButton.pin.below(of: bottomRow, aligned: .center).marginTop(20)
         
+        moreButton.size.width = testButton.size.width
+        moreButton.size.height = testButton.size.height
+        moreButton.pin.below(of: testButton, aligned: .center).marginTop(20)
+        
     }
     
-    func butAct(sender: UIButton) {
-        print("something")
+    func testButAction(sender: UIButton) {
+        print("Test button was pressed")
+    }
+    
+    func moreButAction(sender: UIButton) {
+        print("More button was pressed")
     }
     
     required init?(coder aDecoder: NSCoder) {

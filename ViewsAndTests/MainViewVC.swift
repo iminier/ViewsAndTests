@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewVC: UIViewController {
     
     var mainView: MainView!
 
@@ -20,7 +20,6 @@ class ViewController: UIViewController {
         self.view.addSubview(mainView)
         
         mainView.setLayout(view: view)
-        mainView.isUserInteractionEnabled = true
         
     }
 
