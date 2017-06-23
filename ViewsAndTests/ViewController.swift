@@ -15,11 +15,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mainView = MainView(frame: CGRect.init(x: 0, y: 0, width: view.frame.width * 0.70, height: 40))
-        //self.addChildViewController(mainView)
+        mainView = MainView(frame: CGRect.init(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
+        
         self.view.addSubview(mainView)
-        mainView.isUserInteractionEnabled = true
+        
         mainView.setLayout(view: view)
+        mainView.isUserInteractionEnabled = true
         
     }
 

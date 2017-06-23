@@ -10,6 +10,7 @@ import UIKit
 import PinLayout
 
 class MainView: UIView {
+    
     var yogaImage: UIImageView!
     var yogaTwo: UIImageView!
     var yogaThree: UIImageView!
@@ -27,6 +28,7 @@ class MainView: UIView {
         yogaImage.backgroundColor = UIColor.gray
         yogaImage.layer.borderColor = UIColor.white.cgColor
         yogaImage.layer.borderWidth = 2
+        yogaImage.isUserInteractionEnabled = false
         
         self.addSubview(yogaImage)
         
@@ -80,6 +82,7 @@ class MainView: UIView {
     func setLayout(view: UIView) {
         
         print(view.frame.width)
+        yogaImage.size = CGSize(width: view.frame.width * 0.70, height: 40)
         yogaImage.center.x = view.frame.width / 2
         yogaImage.center.y = view.frame.height * 0.30
         
@@ -100,8 +103,7 @@ class MainView: UIView {
         
         but.size.width = view.width / 2
         but.size.height = 40
-        but.center.x = view.width / 2
-        but.center.y = view.height * 0.80
+        but.pin.below(of: yogaFour, aligned: .center).marginTop(20)
         
     }
     
