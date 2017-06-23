@@ -11,6 +11,8 @@ import PinLayout
 
 class MainView: UIView {
     
+    let frameBorderWidth: CGFloat = 2
+    
     var topImage: UIImageView!
     var rowTwoLeft: UIImageView!
     var rowTwoRight: UIImageView!
@@ -19,6 +21,7 @@ class MainView: UIView {
     var bottomRow: UIImageView!
 
     var testButton: UIButton!
+    //var moreButton: UIButton!
     
     
     override init(frame: CGRect) {
@@ -27,45 +30,33 @@ class MainView: UIView {
         topImage = UIImageView(frame: frame)
         topImage.backgroundColor = UIColor.gray
         topImage.layer.borderColor = UIColor.white.cgColor
-        topImage.layer.borderWidth = 2
+        topImage.layer.borderWidth = frameBorderWidth
         topImage.isUserInteractionEnabled = false
-        
-        self.addSubview(topImage)
         
         rowTwoLeft = UIImageView(frame: frame)
         rowTwoLeft.backgroundColor = UIColor.blue
         rowTwoLeft.layer.borderColor = UIColor.white.cgColor
-        rowTwoLeft.layer.borderWidth = 2
-        
-        self.addSubview(rowTwoLeft)
+        rowTwoLeft.layer.borderWidth = frameBorderWidth
         
         rowTwoRight = UIImageView(frame: frame)
         rowTwoRight.backgroundColor = UIColor.orange
         rowTwoRight.layer.borderColor = UIColor.white.cgColor
-        rowTwoRight.layer.borderWidth = 2
-        
-        self.addSubview(rowTwoRight)
-        
-        rowThreeRight = UIImageView(frame: frame)
-        rowThreeRight.backgroundColor = UIColor.red
-        rowThreeRight.layer.borderColor = UIColor.white.cgColor
-        rowThreeRight.layer.borderWidth = 2
-        
-        self.addSubview(rowThreeRight)
-        
-        bottomRow = UIImageView(frame: frame)
-        bottomRow.backgroundColor = UIColor.purple
-        bottomRow.layer.borderColor = UIColor.white.cgColor
-        bottomRow.layer.borderWidth = 2
-        
-        self.addSubview(bottomRow)
+        rowTwoRight.layer.borderWidth = frameBorderWidth
         
         rowThreeLeft = UIImageView(frame: frame)
         rowThreeLeft.backgroundColor = UIColor.yellow
         rowThreeLeft.layer.borderColor = UIColor.white.cgColor
-        rowThreeLeft.layer.borderWidth = 2
+        rowThreeLeft.layer.borderWidth = frameBorderWidth
         
-        self.addSubview(rowThreeLeft)
+        rowThreeRight = UIImageView(frame: frame)
+        rowThreeRight.backgroundColor = UIColor.red
+        rowThreeRight.layer.borderColor = UIColor.white.cgColor
+        rowThreeRight.layer.borderWidth = frameBorderWidth
+        
+        bottomRow = UIImageView(frame: frame)
+        bottomRow.backgroundColor = UIColor.purple
+        bottomRow.layer.borderColor = UIColor.white.cgColor
+        bottomRow.layer.borderWidth = frameBorderWidth
         
         testButton = UIButton(frame: frame)
         testButton.backgroundColor = UIColor.clear
@@ -73,10 +64,20 @@ class MainView: UIView {
         testButton.titleLabel?.textAlignment = .center
         testButton.titleLabel?.textColor = UIColor.white
         testButton.layer.borderColor = UIColor.white.cgColor
-        testButton.layer.borderWidth = 2
+        testButton.layer.borderWidth = frameBorderWidth
         testButton.addTarget(self, action: #selector(MainView.butAct), for: .touchUpInside)
         
+        // Any order here works as long as the layout is set in proper order in setLayout()
+        
+        self.addSubview(topImage)
+        self.addSubview(rowTwoLeft)
+        self.addSubview(rowTwoRight)
+        self.addSubview(rowThreeLeft)
+        self.addSubview(rowThreeRight)
+        self.addSubview(bottomRow)
         self.addSubview(testButton)
+ 
+        
     }
     
     func setLayout(view: UIView) {
