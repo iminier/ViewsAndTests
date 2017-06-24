@@ -11,9 +11,9 @@ import PinLayout
 
 class MainView: UIView {
     
-    let frameBorderWidth: CGFloat = 2
-    let frameBackgroundColor: UIColor = UIColor.clear
-    let frameBorderColor: CGColor = UIColor.white.cgColor
+    private let frameBorderWidth: CGFloat = 2
+    private let frameBackgroundColor: UIColor = UIColor.clear
+    private let frameBorderColor: CGColor = UIColor.white.cgColor
     
     var topImage: UIImageView!
     var rowTwoLeft: UIImageView!
@@ -27,6 +27,8 @@ class MainView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        self.tag = 1
         
         topImage = UIImageView(frame: frame)
         topImage.backgroundColor = frameBackgroundColor
@@ -98,7 +100,6 @@ class MainView: UIView {
     
     func setLayout(view: UIView) {
         
-        print(view.frame.width)
         topImage.size = CGSize(width: view.frame.width * 0.70, height: 50)
         topImage.center.x = view.width / 2
         topImage.center.y = view.height * 0.20
@@ -130,8 +131,9 @@ class MainView: UIView {
         
     }
     
-    func testButAction(sender: UIButton) {
+    func testButAction(sender: UIButton) -> String {
         print("Test button was pressed")
+        return "Test button was pressed"
     }
     
     func moreButAction(sender: UIButton) {
