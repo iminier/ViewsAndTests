@@ -16,7 +16,7 @@ class MainViewVC: UIViewController {
         super.viewDidLoad()
         
         mainView = MainView(frame: CGRect.init(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
-        
+        self.view.backgroundColor = UIColor.lightGray
         self.view.addSubview(mainView)
         
         mainView.setLayout(view: view)
