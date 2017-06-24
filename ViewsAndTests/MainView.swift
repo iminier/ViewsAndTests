@@ -64,7 +64,7 @@ class MainView: UIView {
         testButton.titleLabel?.textColor = UIColor.white
         testButton.layer.borderColor = UIColor.white.cgColor
         testButton.layer.borderWidth = frameBorderWidth
-        testButton.addTarget(self, action: #selector(MainView.testButAction), for: .touchUpInside)
+        testButton.addTarget(self, action: #selector(testButAction), for: .touchUpInside)
         
         moreButton = UIButton(frame: frame)
         moreButton.backgroundColor = UIColor.clear
@@ -73,7 +73,7 @@ class MainView: UIView {
         moreButton.titleLabel?.textColor = UIColor.white
         moreButton.layer.borderColor = UIColor.white.cgColor
         moreButton.layer.borderWidth = frameBorderWidth
-        moreButton.addTarget(self, action: #selector(MainView.moreButAction), for: .touchUpInside)
+        moreButton.addTarget(self, action: #selector(moreButAction), for: .touchUpInside)
         
         // Any order here works as long as the layout is set in proper order in setLayout()
         
