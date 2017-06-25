@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  ViewsAndTests
-//
-//  Created by Ivan Minier on 6/20/17.
-//  Copyright © 2017 Ivan Minier. All rights reserved.
-//
 
 import UIKit
 

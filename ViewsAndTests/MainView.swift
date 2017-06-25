@@ -1,10 +1,3 @@
-//
-//  MainView.swift
-//  ViewsAndTests
-//
-//  Created by Ivan Minier on 6/20/17.
-//  Copyright © 2017 Ivan Minier. All rights reserved.
-//
 
 import UIKit
 import PinLayout
@@ -15,7 +8,7 @@ class MainView: UIView {
     private let frameBackgroundColor: UIColor = UIColor.clear
     private let frameBorderColor: CGColor = UIColor.white.cgColor
     
-    var topImage: UIImageView!
+    var rowTop: UIImageView!
     var rowTwoLeft: UIImageView!
     var rowTwoRight: UIImageView!
     var rowThreeLeft: UIImageView!
@@ -30,10 +23,10 @@ class MainView: UIView {
         
         self.tag = 1
         
-        topImage = UIImageView(frame: frame)
-        topImage.backgroundColor = frameBackgroundColor
-        topImage.layer.borderColor = frameBorderColor
-        topImage.layer.borderWidth = frameBorderWidth
+        rowTop = UIImageView(frame: frame)
+        rowTop.backgroundColor = frameBackgroundColor
+        rowTop.layer.borderColor = frameBorderColor
+        rowTop.layer.borderWidth = frameBorderWidth
         
         rowTwoLeft = UIImageView(frame: frame)
         rowTwoLeft.backgroundColor = frameBackgroundColor
@@ -86,7 +79,7 @@ class MainView: UIView {
         
         // Any order here works as long as the layout is set in proper order in setLayout()
         
-        self.addSubview(topImage)
+        self.addSubview(rowTop)
         self.addSubview(rowTwoLeft)
         self.addSubview(rowTwoRight)
         self.addSubview(rowThreeLeft)
@@ -100,23 +93,23 @@ class MainView: UIView {
     
     func setLayout(view: UIView) {
         
-        topImage.size = CGSize(width: view.frame.width * 0.70, height: 50)
-        topImage.center.x = view.width / 2
-        topImage.center.y = view.height * 0.20
+        rowTop.size = CGSize(width: view.frame.width * 0.70, height: 50)
+        rowTop.center.x = view.width / 2
+        rowTop.center.y = view.height * 0.20
         
-        rowTwoLeft.size = CGSize(width: view.width * 0.40, height: topImage.height * 2)
-        rowTwoLeft.pin.below(of: topImage, aligned: .left)
+        rowTwoLeft.size = CGSize(width: view.width * 0.40, height: rowTop.height * 2)
+        rowTwoLeft.pin.below(of: rowTop, aligned: .left)
         
-        rowTwoRight.size = CGSize(width: view.width * 0.30, height: topImage.height * 2)
-        rowTwoRight.pin.below(of: topImage, aligned: .right)
+        rowTwoRight.size = CGSize(width: view.width * 0.30, height: rowTop.height * 2)
+        rowTwoRight.pin.below(of: rowTop, aligned: .right)
         
-        rowThreeLeft.size = CGSize(width: topImage.width * 0.50, height: topImage.height * 1.5)
+        rowThreeLeft.size = CGSize(width: rowTop.width * 0.50, height: rowTop.height * 1.5)
         rowThreeLeft.pin.below(of: rowTwoLeft, aligned: .left)
         
-        rowThreeRight.size = CGSize(width: topImage.width * 0.50, height: topImage.height * 1.5)
+        rowThreeRight.size = CGSize(width: rowTop.width * 0.50, height: rowTop.height * 1.5)
         rowThreeRight.pin.below(of: rowTwoRight, aligned: .right)
         
-        bottomRow.size = CGSize(width: topImage.width, height: topImage.height)
+        bottomRow.size = CGSize(width: rowTop.width, height: rowTop.height)
         bottomRow.pin.below(of: rowThreeLeft, aligned: .left)
         
         testButton.size.width = view.width / 2
