@@ -114,13 +114,11 @@ class MainView: UIView {
         
         testButton.size.width = view.width / 2
         testButton.size.height = 40
-        testButton.pin.below(of: bottomRow, aligned: .center).marginTop(20)
+        testButton.pin.below(of: bottomRow, aligned: .center).marginTop(40)
         
         moreButton.size.width = testButton.size.width
         moreButton.size.height = testButton.size.height
         moreButton.pin.below(of: testButton, aligned: .center).marginTop(20)
-        
-        //topImage.pin.margin(0, 0, 4, 0)
         
     }
     
