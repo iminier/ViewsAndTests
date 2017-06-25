@@ -3,19 +3,64 @@ import XCTest
 @testable import ViewsAndTests
     
 class MainViewTests: XCTestCase {
-        
-        var mainView: MainView!
-        
-        override func setUp() {
-            super.setUp()
+
+    var viewController: MainVC!
+    
+    override func setUp() {
+        super.setUp()
+    
+        viewController = MainVC()
+        let _ = viewController.view
             
-            mainView = MainView()
-            
-        }
+    }
+
+    // User should see the grid
+    
+    func testTopRowLoadsWithoutImage() {
         
-        func testTestButton() {
-            let result = mainView.testButAction(sender: mainView.testButton)
-            XCTAssertEqual(result, "Test button was pressed")
-        }
+        let image = viewController.mainView.rowTop.image
         
+        XCTAssertNil(image)
+        
+    }
+    
+    func testBackgroundColorLoadsClear() {
+        
+        let backgroundColor = viewController.mainView.rowTop.backgroundColor
+        
+        XCTAssertEqual(backgroundColor, UIColor.clear)
+        
+    }
+    
+    func testTopRowBorderLoadsCorrectly() {
+        
+        let border = viewController.mainView.rowTop.layer.borderColor
+        
+        XCTAssertEqual(border, UIColor.white.cgColor)
+    }
+    
+    // User should see Test button
+    
+    func testTestButtonLoads() {
+        
+        let button = viewController.mainView.testButton
+        let buttonName = button?.titleLabel?.text
+        
+        XCTAssertEqual(buttonName, "TEST")
+    }
+    
+    func testTestButton() {
+        let result = viewController.mainView.testButAction(sender: viewController.mainView.testButton)
+        XCTAssertEqual(result, "Test button was pressed")
+    }
+    
+    // User should see More button
+    
+    func testMoreButtonLoads() {
+        let button = viewController.mainView.moreButton
+        let buttonName = button?.titleLabel?.text
+        XCTAssertEqual(buttonName, "MORE")
+    }
+
+    
 }
