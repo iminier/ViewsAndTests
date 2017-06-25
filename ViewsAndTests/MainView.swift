@@ -7,6 +7,7 @@ class MainView: UIView {
     private let frameBorderWidth: CGFloat = 2
     private let frameBackgroundColor: UIColor = UIColor.clear
     private let frameBorderColor: CGColor = UIColor.white.cgColor
+    private let buttonSize = CGSize(width: 175, height: 40)
     
     var rowTop: UIImageView!
     var rowTwoLeft: UIImageView!
@@ -112,12 +113,10 @@ class MainView: UIView {
         bottomRow.size = CGSize(width: rowTop.width, height: rowTop.height)
         bottomRow.pin.below(of: rowThreeLeft, aligned: .left)
         
-        testButton.size.width = view.width / 2
-        testButton.size.height = 40
+        testButton.size = buttonSize
         testButton.pin.below(of: bottomRow, aligned: .center).marginTop(40)
         
-        moreButton.size.width = testButton.size.width
-        moreButton.size.height = testButton.size.height
+        moreButton.size = buttonSize
         moreButton.pin.below(of: testButton, aligned: .center).marginTop(20)
         
     }
@@ -127,8 +126,9 @@ class MainView: UIView {
         return "Test button was pressed"
     }
     
-    func moreButAction(sender: UIButton) {
+    func moreButAction(sender: UIButton) -> String {
         print("More button was pressed")
+        return "Test button was pressed"
     }
     
     required init?(coder aDecoder: NSCoder) {

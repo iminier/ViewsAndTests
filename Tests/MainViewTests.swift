@@ -49,6 +49,12 @@ class MainViewTests: XCTestCase {
         XCTAssertEqual(buttonName, "TEST")
     }
     
+    func testTestButtonSize() {
+        let buttonSize = viewController.mainView.testButton.frame.size
+        XCTAssertEqual(buttonSize, CGSize(width: 175.0, height: 40.0))
+        
+    }
+    
     func testTestButton() {
         let result = viewController.mainView.testButAction(sender: viewController.mainView.testButton)
         XCTAssertEqual(result, "Test button was pressed")
@@ -62,5 +68,15 @@ class MainViewTests: XCTestCase {
         XCTAssertEqual(buttonName, "MORE")
     }
 
+    func testMoreButtonSize() {
+        let buttonSize = viewController.mainView.moreButton.frame.size
+        XCTAssertEqual(buttonSize, CGSize(width: 175.0, height: 40.0))
+        
+    }
+    
+    func testMoreButton() {
+        let result = viewController.mainView.moreButAction(sender: viewController.mainView.moreButton)
+        XCTAssertEqual(result, "Test button was pressed")
+    }
     
 }
