@@ -4,13 +4,13 @@ import XCTest
 
 class MainVCTests: XCTestCase {
     
-    var viewController: MainVC!
+    var vcUnderTest: MainVC!
     
     override func setUp() {
         
         super.setUp()
-        viewController = MainVC()
-        let _ = viewController.view
+        vcUnderTest = MainVC()
+        let _ = vcUnderTest.view
         
     }
     
@@ -22,8 +22,9 @@ class MainVCTests: XCTestCase {
     
     func testCorrectViewLoads() {
         
-        let result = viewController.mainView.tag
-        XCTAssertEqual(result, 1)
+        let loadedView = vcUnderTest.mainView
+        let loadedViewTag = loadedView?.tag
+        XCTAssertEqual(loadedViewTag, 1)
         
     }
     
